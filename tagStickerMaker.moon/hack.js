@@ -10,14 +10,16 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 var pj = MOON.getPaperJSON(p["backing"]);
                 var xmin=768; var xmax=0;
                 var ymin=1024; var ymax=0;
-                var st={}; var i=0;
                 for( st in pj["strokes"]{
-                    for(dt in st['data']){
-                        if(i==0){
+                    var data = st['data'];
+                    for(var i=0,len=data.length;i<len;i++){
+                        var j=i%3;
+                        var dt=data[i];
+                        if(j==0){
                             if(dt<xmin){xmin=dt;}
                             if(dt>xmax){xmax=dt;}
                             i=1;
-                        }esle if(i==1){
+                        }else if(i==1){
                             if(dt<ymin){ymin=dt;}
                             if(dt>ymax){ymax=dt;}
                             i=2;
