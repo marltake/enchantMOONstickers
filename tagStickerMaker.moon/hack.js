@@ -10,6 +10,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 var pj = MOON.getPaperJSON(p["backing"]);
                 var xmin=768; var xmax=0;
                 var ymin=1024; var ymax=0;
+                var st={};
                 for( st in pj["strokes"]{
                     var data = st['data'];
                     for(var i=0,len=data.length;i<len;i++){
@@ -37,7 +38,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 //sj1["clip"]["data"] = sj1["clip"]["data"].slice(0, 15);
                 //sj0["strokes"] = sj0["strokes"].slice(0, 1);
                 //sj1["strokes"] = sj1["strokes"].slice(0, 1);
-                MOON.alert("x "+xmin+","+xmax+" y "+ymin+","+ymax",", MOON.finish);
+                MOON.alert("x "+xmin+","+xmax+" y "+ymin+","+ymax, MOON.finish);
                 enchant.puppet.stopTheatre();
             },
             stickerattach: function(event) {
