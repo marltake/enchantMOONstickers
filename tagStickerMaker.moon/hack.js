@@ -7,7 +7,6 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
         behavior: [{
             stickertap: function(event) {
                 MOON.urlOpen("https://github.com/marltake/enchantMOONstickers/raw/master/dist/tagStickerMaker.moon.zip");
-                    http://goo.gl/M844qo");
                 var p = MOON.getCurrentPage();
                 var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 var sj1 = MOON.getPaperJSON(p["papers"][1]);
