@@ -23,7 +23,6 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 enchant.puppet.stopTheatre();
             },
             stickerdetach: function(event) {
-                MOON.openUrl("https://github.com/marltake/enchantMOONstickers/raw/master/dist/tagStickerMaker.moon.zip");
                 enchant.puppet.stopTheatre();
             }
         }]
