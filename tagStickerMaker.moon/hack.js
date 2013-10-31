@@ -6,7 +6,6 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
     StickerPuppet.create("シール", {
         behavior: [{
             stickertap: function(event) {
-                MOON.urlOpen("https://github.com/marltake/enchantMOONstickers/raw/master/dist/tagStickerMaker.moon.zip");
                 var p = MOON.getCurrentPage();
                 var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 var sj1 = MOON.getPaperJSON(p["papers"][1]);
@@ -24,6 +23,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 enchant.puppet.stopTheatre();
             },
             stickerdetach: function(event) {
+                MOON.openUrl("https://github.com/marltake/enchantMOONstickers/raw/master/dist/tagStickerMaker.moon.zip");
                 enchant.puppet.stopTheatre();
             }
         }]
