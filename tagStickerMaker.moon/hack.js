@@ -11,7 +11,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
 		var c=[[768,1024][0,0]];
 		//var buf="";
 		//for(st in pj['strokes']){ buf+=(" "+st['data'].length); }
-                MOON.alert(typeof(pj['strokes'][0]['data']), MOON.finish);
+                MOON.alert(pj['strokes'][0]['data'].slice(0,6), MOON.finish);
                 enchant.puppet.stopTheatre();
             },
             stickerattach: function(event) {
