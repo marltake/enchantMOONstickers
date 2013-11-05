@@ -20,7 +20,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                     return c;
                 };
                 var areas=[];
-                MOON.alert(pj.key, MOON.finish);
+                MOON.alert(pj.keys, MOON.finish);
                 for( st in pj.strokes ){
                     MOON.alert(st.key, MOON.finish);
                     areas.append(seaerchArea(st.data));
