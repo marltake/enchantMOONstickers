@@ -21,9 +21,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 };
                 var areas=[];
                 for( st in pj.strokes ){
-                    var s="";
-                    for(k in st){s=s+" "+k;}
-                    MOON.alert(s, MOON.finish);
+                    MOON.alert(st.data.length, MOON.finish);
                 //    areas.append(seaerchArea(st.data));
                 }
                 //var sj0 = MOON.getPaperJSON(p["papers"][0]);
