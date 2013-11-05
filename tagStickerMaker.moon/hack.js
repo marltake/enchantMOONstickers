@@ -20,9 +20,8 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                     return c;
                 };
                 var areas=[];
-                MOON.alert(pj.strokes[0].data.length, MOON.finish);
+                MOON.alert(searchArea(pj.strokes[0].data), MOON.finish);
                 //    areas.append(seaerchArea(st.data));
-                }
                 //var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 //var sj1 = MOON.getPaperJSON(p["papers"][1]);
                 //sj0["x"] = 0; sj1["x"] = 0;
