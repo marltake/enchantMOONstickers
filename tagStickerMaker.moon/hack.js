@@ -7,27 +7,21 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
         behavior: [{
             stickertap: function(event) {
                 var p = MOON.getCurrentPage();
-                var pj = MOON.getPaperJSON(p["backing"]);
-                var xmin=768; var xmax=0;
-                var ymin=1024; var ymax=0;
-                var st={};
-                for( st in pj["strokes"]{
-                    var data = st['data'];
-                    for(var i=0,len=data.length;i<len;i++){
-                        var j=i%3;
-                        var dt=data[i];
-                        if(j==0){
-                            if(dt<xmin){xmin=dt;}
-                            if(dt>xmax){xmax=dt;}
-                            i=1;
-                        }else if(i==1){
-                            if(dt<ymin){ymin=dt;}
-                            if(dt>ymax){ymax=dt;}
-                            i=2;
-                        }else{
-                            i=0;
-                        }
+                var pj = MOON.getPaperJSON(p.backing);
+                var area=function(d){
+                    var l=d.length-3;
+                    var c={min:{x:d[l],y:d[l+1]},min:{x:d[l],y:d[l+1]}};
+                    for(l=l-3;l>=0;l-=3){
+                        if(c.min.x>d[l]){c.min.x=d[l];}
+                        if(c.max.x<d[l]){c.max.x=d[l];}
+                        if(c.min.y>d[l+1]){c.min.y=d[l+1];}
+                        if(c.max.y<d[l+1]){c.max.y=d[l+1];}
                     }
+                    return c;
+                };
+                var areas=[]
+                for( st in pj.strokes ){
+                    areas.append(area(st.data));
                 }
                 //var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 //var sj1 = MOON.getPaperJSON(p["papers"][1]);
@@ -38,7 +32,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 //sj1["clip"]["data"] = sj1["clip"]["data"].slice(0, 15);
                 //sj0["strokes"] = sj0["strokes"].slice(0, 1);
                 //sj1["strokes"] = sj1["strokes"].slice(0, 1);
-                MOON.alert("x "+xmin+","+xmax+" y "+ymin+","+ymax, MOON.finish);
+                MOON.alert(areas, MOON.finish);
                 enchant.puppet.stopTheatre();
             },
             stickerattach: function(event) {
