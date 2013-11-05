@@ -10,7 +10,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 var pj = MOON.getPaperJSON(p.backing);
                 var searchArea=function(d){
                     var l=d.length-3;
-                    var c={min:{x:d[l],y:d[l+1]},min:{x:d[l],y:d[l+1]}};
+                    var c={min:{x:d[l],y:d[l+1]},max:{x:d[l],y:d[l+1]}};
                     for(l=l-3;l>=0;l-=3){
                         if(c.min.x>d[l]){c.min.x=d[l];}
                         if(c.max.x<d[l]){c.max.x=d[l];}
