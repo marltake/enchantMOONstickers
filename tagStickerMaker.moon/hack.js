@@ -8,7 +8,7 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
             stickertap: function(event) {
                 var p = MOON.getCurrentPage();
                 var pj = MOON.getPaperJSON(p.backing);
-                var area=function(d){
+                var searchArea=function(d){
                     var l=d.length-3;
                     var c={min:{x:d[l],y:d[l+1]},min:{x:d[l],y:d[l+1]}};
                     for(l=l-3;l>=0;l-=3){
@@ -21,7 +21,8 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                 };
                 var areas=[]
                 for( st in pj.strokes ){
-                    areas.append(area(st.data));
+                    MOON.alert(st.key, MOON.finish);
+                    areas.append(seaerchArea(st.data));
                 }
                 //var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 //var sj1 = MOON.getPaperJSON(p["papers"][1]);
