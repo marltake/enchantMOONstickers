@@ -20,10 +20,11 @@ importJS(["lib/MOON.js", "lib/enchant.js", "lib/ui.enchant.js", "lib/color.encha
                     return c;
                 };
                 var areas=[];
-                MOON.alert(pj.keys, MOON.finish);
                 for( st in pj.strokes ){
-                    MOON.alert(st.key, MOON.finish);
-                    areas.append(seaerchArea(st.data));
+                    var s="";
+                    for(k in st){s=s+" "+k;}
+                    MOON.alert(s, MOON.finish);
+                //    areas.append(seaerchArea(st.data));
                 }
                 //var sj0 = MOON.getPaperJSON(p["papers"][0]);
                 //var sj1 = MOON.getPaperJSON(p["papers"][1]);
