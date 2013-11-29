@@ -146,7 +146,7 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
         MOON.finish();
     };
     sticker.ontap = function() {
-        MOON.penPrompt("search pattern","^2003",{fieldLength:16,fieldSize:56,inputType:"any"}, function(str){str="function matches(j){for(k in j){if(k.matches(/"+str+"/) && j[k]>0){return true;}}return false;}"; MOON.searchStorage(str);MOON.finish();});
+        MOON.penPrompt("search pattern","^2013",{fieldLength:16,fieldSize:56,inputType:"any"}, function(str){str="function matches(j){for(var k in j){if(k.matches(/"+str+"/) && j[k]>0){return true;}}return false;}"; MOON.searchStorage(str);MOON.finish();});
         MOON.finish();
     };
     sticker.register();
