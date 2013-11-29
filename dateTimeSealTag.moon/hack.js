@@ -146,7 +146,7 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
         MOON.finish();
     };
     sticker.ontap = function() {
-        var searchPageTag = function(str){
+        var function searchPageTag(str){
             str="function matches(j){for(k in j){if(k.matches(/"+str+"/) && j[k]>0){return true;}}return false;}";
             MOON.searchStorage(str);MOON.finish();
             };
