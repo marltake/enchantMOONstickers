@@ -140,10 +140,10 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
 		var d = new Date();
 		setDateStroke(stickerID,d);
 		setDateTimeTag(d);
-        enchant.puppet.stopThreatre();
+        enchant.puppet.stopTheatre();
     };
     sticker.ondetach = function() {
-        enchant.puppet.stopThreatre();
+        enchant.puppet.stopTheatre();
     };
     sticker.ontap = function() {
         var searchPageTag = function(str){
@@ -151,7 +151,7 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
             MOON.searchStorage(str);MOON.finish();
             };
         MOON.penPrompt("search pattern","^2003",{fieldLength:16,fieldSize:56,inputType:"any"},searchPageTag(str));
-        enchant.puppet.stopThreatre();
+        enchant.puppet.stopTheatre();
     };
     sticker.register();
 });
