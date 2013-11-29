@@ -98,12 +98,11 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
 		return strokes;
 	}
 
-	function setDateStroke(destID) {
+	function setDateStroke(destID,d) {
 		var margin = 10;
 		var penC = rgba2int(255, 255, 255, 255);
 		var penW = 2;
 		var size = [12, 24];
-		var d = new Date();
 		var dateStr = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() ;
 		var timeStr = d.getHours() + ":";
 		if (d.getMinutes() < 10) {
@@ -127,16 +126,24 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
 		dest.height = h;
 		MOON.setPaperJSON(destID, dest);
 	}
+    function setDateTimeTag(d){
+        var i2d = function(i){return ("0"+i).slice(-2);};
+        var Tag = d.getFullYear()+i2d((d.getMonth()+1))+i2d(d.getDate());
+        Tag = Tag+i2d(d.getHours())+i2d(d.getMinutes())+i2d(d.getSeconds());
+        localStorage[Tag] = (+localStorage[Tag] || 0) + 1;
+    }
 
     var sticker = Sticker.create();
     sticker.onattach = function() {
 		var paperID = MOON.getCurrentPage().backing;
 		var stickerID = getStickerID();
-		setDateStroke(stickerID);
-        MOON.finish();
+		var d = new Date();
+		setDateStroke(stickerID,d);
+		setDateTimeTag(d);
+        enchant.puppet.stopThreatre();
     };
     sticker.ondetach = function() {
-        MOON.finish();
+        enchant.puppet.stopThreatre();
     };
     sticker.ontap = function() {
         var searchPageTag = function(str){
@@ -144,7 +151,7 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
             MOON.searchStorage(str);MOON.finish();
             };
         MOON.penPrompt("search pattern","^2003",{fieldLength:16,fieldSize:56,inputType:"any"},searchPageTag(str));
-        MOON.finish();
+        enchant.puppet.stopThreatre();
     };
     sticker.register();
 });
