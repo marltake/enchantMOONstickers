@@ -39,12 +39,12 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
     }
 
 	function getPageID() {
-		var relURL = window.location.getAbsoluteURL("").split("/Data/")[1];
+		var relURL = window.location.getAbsoluteURL("").split("/data/")[1];
 		return relURL.split( "/" )[1];
 	}
 
 	function getStickerID() {
-		var relURL = window.location.getAbsoluteURL("").split("/Data/")[1];
+		var relURL = location.href.split("/data/")[1];
 		return relURL.split( "/" )[2];
 	}
 
@@ -146,7 +146,7 @@ importJS(["lib/MOON.js", "lib/enchant.js"], function() {
         MOON.finish();
     };
     sticker.ontap = function() {
-        MOON.penPrompt("search pattern","^2013",{fieldLength:16,fieldSize:56,inputType:"any"}, function(str){str="function matches(j){for(var k in j){if(k.match(/"+str+"/) && j[k]>0){return true;}}return false;}"; MOON.searchStorage(str);MOON.finish();});
+        MOON.penPrompt("search pattern","^2014",{fieldLength:16,fieldSize:56,inputType:"any"}, function(str){str="function matches(j){for(var k in j){if(k.match(/"+str+"/) && j[k]>0){return true;}}return false;}"; MOON.searchStorage(str);MOON.finish();});
         MOON.finish();
     };
     sticker.register();
