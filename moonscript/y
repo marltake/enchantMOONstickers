@@ -1,0 +1,22 @@
+var stickerID=location.href.split('/').splice(-2)[0];
+var info = MOON.getPaperJSON(stickerID);
+function writeCanvas(str){
+    if(info.TEXT!=str){
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.width = str.length*32;
+        canvas.height = 48 ;
+        ctx.strokeStyle = '#555555';
+        ctx.font="32px Futura";
+        var res = MOON.int2rgba(MOON.getDefaultPenColorBW());
+        ctx.fontStyle="rgb("+res[0]+","+res[1]+","+res[2]+")";
+        ctx.fillText(str,0,32,str.length*32);
+        info.width = canvas.width;
+        info.height = canvas.height;
+        info.image = MOON.saveImage(canvas);
+        MOON.setPaperJSON(stickerID, info);
+    }
+    MOON.finish();
+}
+if(info.TEXT==undefined){info.TEXT="";}
+MOON.penPrompt("Write Script", info.TEXT, {fieldLength:20, fieldSize:48},writeCanvas);
